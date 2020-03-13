@@ -1,0 +1,10 @@
+CREATE TABLE category (
+  id          BIGINT        NOT NULL AUTO_INCREMENT,
+  parent_id   BIGINT        NOT NULL DEFAULT 0,
+  name        VARCHAR(255)  NOT NULL,
+  note        TEXT                   DEFAULT NULL,
+  create_date TIMESTAMP     NOT NULL DEFAULT '0000-00-00 00:00:00',
+  update_date TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (parent_id)   REFERENCES category (id) ON DELETE CASCADE
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

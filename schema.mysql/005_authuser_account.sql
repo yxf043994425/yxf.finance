@@ -1,0 +1,8 @@
+CREATE TABLE account (
+  id            BIGINT        NOT NULL AUTO_INCREMENT,
+  user_id       BIGINT        NOT NULL,
+  create_date   TIMESTAMP      NOT NULL DEFAULT '0000-00-00 00:00:00',
+  update_date   TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id)     REFERENCES authuser (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
